@@ -7,12 +7,14 @@ import 'rxjs/add/operator/toPromise';
 import * as ngHttp from "@angular/http";
 
 import * as Config from "../config";
-import {Beer, BeerFactory} from "../businessObjects/beer";
+import { Beer, BeerFactory } from "../businessObjects/beer";
+
+import {Optional} from "@angular/core";
 
 @Injectable()
 export class BeersService{
     
-    constructor(private http: ngHttp.Http){
+    constructor(@Optional() private http: ngHttp.Http){
 
     }
 

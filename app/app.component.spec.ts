@@ -1,5 +1,12 @@
 /* tslint:disable:no-unused-variable */
 import { AppComponent } from './app.component';
+import { AppRoutes } from "./app.routes"
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from "@angular/router"
+import { BeerListComponent } from "./components/beerlist/beerlist.component";
+import { BeerDetailsComponent } from "./components/beerDetails/beerDetails.component";
+import { BeersService } from "./services/beersService";
+
 
 import { TestBed }      from '@angular/core/testing';
 
@@ -15,8 +22,16 @@ describe('Smoke test', () => {
 });
 
 describe('AppComponent with TCB', function () {
-  beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [AppComponent]});
+  beforeEach((done) => {
+    TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot(AppRoutes)],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }, BeersService],
+      declarations: [AppComponent, BeerListComponent, BeerDetailsComponent]
+    });
+
+    TestBed.compileComponents().then(() => {
+      done();
+    })
   });
 
   it('should instantiate component', () => {
@@ -32,6 +47,6 @@ describe('AppComponent with TCB', function () {
 
         h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
 
-    expect(h1.innerText).toMatch(/angular app/i, '<h1> should say something about "Angular App"');
+    expect(h1.innerText).toMatch(/beer/i, '<h1> should say something about "Angular App"');
   });
 });
