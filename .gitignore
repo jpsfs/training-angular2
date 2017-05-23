@@ -1,16 +1,23 @@
 .idea
+<<<<<<< HEAD
 typings/**
 .vscode/**
+=======
+>>>>>>> upstream/master
 node_modules
 jspm_packages
-link-checker-results.txt
-**/*npm-debug.log.*
-*.js
+npm-debug.log
+debug.log
+src/**/*.js
+!src/systemjs.config.extras.js
+!src/systemjs.config.js
+!src/systemjs-angular-loader.js
 *.js.map
 e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
+<<<<<<< HEAD
 
 !karma*.js
 !protractor*.js
@@ -18,3 +25,5 @@ _temp
 !typings/typings.d.ts
 !wallaby.js
 !.vscode/*.json
+=======
+>>>>>>> upstream/master
