@@ -11,5 +11,5 @@
         "**/*.js.map": true,
         "**/src/**/*.d.ts": true
 	},
-    "editor.wrappingColumn": 0
+    "editor.wordWrap": "on"
 }
